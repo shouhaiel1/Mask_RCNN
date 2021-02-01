@@ -1,9 +1,12 @@
 # Objective
 This is an attempt to porting the Mask_RCNN from tensorflow 1.x to tensorflow 2.x . 
+
 We also included three scripts for : 
+
 1.Applying segmentation on videos: `deploy_onvideo.py`
 2.Deploying the model directly from the webcam `deploy.py`
 3.Taking a picture from webcam and applying instance segmentation `webcam_pic.py`
+
 There are 9 main edits : 
 * Four edits to make predictions with Mask R-CNN using TensorFlow 2.x
 * Five edits to train Mask R-CNN with TensorFlow 2.x
