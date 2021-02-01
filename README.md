@@ -3,27 +3,27 @@ This is an attempt to porting the Mask_RCNN from tensorflow 1.x to tensorflow 2.
 
 We also included three scripts for : 
 
-1.Applying segmentation on videos: `deploy_onvideo.py`
-2.Deploying the model directly from the webcam `deploy.py`
-3.Taking a picture from webcam and applying instance segmentation `webcam_pic.py`
+1. Applying segmentation on videos: `deploy_onvideo.py`
+2. Deploying the model directly from the webcam `deploy.py`
+3. Taking a picture from webcam and applying instance segmentation `webcam_pic.py`
 
 There are 9 main edits : 
 * Four edits to make predictions with Mask R-CNN using TensorFlow 2.x
 * Five edits to train Mask R-CNN with TensorFlow 2.x
 ## Edits to Make Predictions with Mask R-CNN Using TensorFlow 2.x :
 To make predictions using Mask R-CNN in TensorFlow 2.x, there are 4 changes to be made in the mrcnn.model script:
-1.Replace tf.log() by tf.math.log()
-2.Replace tf.sets.set_intersection() by tf.sets.intersection()
-3.Replace tf.sparse_tensor_to_dense() by tf.sparse.to_dense()
-4.Replace tf.to_float() by tf.cast([value], tf.float32)
+1. Replace tf.log() by tf.math.log()
+2. Replace tf.sets.set_intersection() by tf.sets.intersection()
+3. Replace tf.sparse_tensor_to_dense() by tf.sparse.to_dense()
+4. Replace tf.to_float() by tf.cast([value], tf.float32)
 
 ## Edits to Train Mask R-CNN Using TensorFlow 2.x :
 To train the Mask R-CNN model using the Mask_RCNN project in TensorFlow 2.x, there are 5 changes to be made in the mrcnn.model script:
-1.Replace tf.random_shuffle() with tf.random.shuffle()
-2.Replace tf.log() with tf.math.log()
-3.Comment out an if statement inside the compile() method.
-4.Initialize the metrics_tensors attribute at the beginning of the compile() method.
-5.Assign a valid directory to the self.log_dir attribute (manually specifying a valid directory) .
+1. Replace tf.random_shuffle() with tf.random.shuffle()
+2. Replace tf.log() with tf.math.log()
+3. Comment out an if statement inside the compile() method.
+4. Initialize the metrics_tensors attribute at the beginning of the compile() method.
+5. Assign a valid directory to the self.log_dir attribute (manually specifying a valid directory) .
 # Mask R-CNN for Object Detection and Segmentation
 
 This is an implementation of [Mask R-CNN](https://arxiv.org/abs/1703.06870) on Python 3, Keras, and TensorFlow. The model generates bounding boxes and segmentation masks for each instance of an object in the image. It's based on Feature Pyramid Network (FPN) and a ResNet101 backbone.
