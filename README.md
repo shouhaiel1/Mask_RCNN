@@ -1,5 +1,5 @@
 # Objective
-This is an attempt to porting the Mask_RCNN from tensorflow 1.x to tensorflow 2.x . 
+This repo is an attempt to porting the Mask_RCNN from tensorflow 1.x to tensorflow 2.x . 
 
 We also included three scripts for : 
 
